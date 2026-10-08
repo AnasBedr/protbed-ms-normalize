@@ -1,0 +1,20 @@
+{
+  "source_path": "examples/sample.csv",
+  "detected_category": "metabolomics",
+  "detected_orientation": "compounds_as_rows",
+  "id_column": "Compound Name",
+  "mz_column": null,
+  "rt_column": "RT",
+  "sample_columns": [
+    "Control_1",
+    "Control_2",
+    "Treated_1",
+    "Treated_2"
+  ],
+  "duplicate_count": 1,
+  "duplicate_strategy": "mean",
+  "missing_strategy": "none",
+  "warnings": [
+    "Collapsed 1 duplicate feature IDs using 'mean'."
+  ]
+}

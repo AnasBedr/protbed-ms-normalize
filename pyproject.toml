@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "protbed-ms-normalize"
+version = "0.2.0"
+description = "A lightweight Python library and CLI to normalize mass spectrometry tabular exports and raw mzML files into analysis-ready tables."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Anas Bedraoui, PhD", email = "contact@protbed.com" },
+]
+keywords = [
+    "mass-spectrometry",
+    "proteomics",
+    "metabolomics",
+    "lipidomics",
+    "exposomics",
+    "data-normalization",
+    "mzml",
+    "lc-ms",
+    "gc-ms",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "click>=8.0",
+    "lxml>=4.9",
+    "numpy>=1.21",
+    "openpyxl>=3.0",
+    "pandas>=1.3",
+    "pydantic>=2.0",
+    "pyteomics>=4.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+protbed-normalize = "protbed_normalize.cli:main"
+
+[project.urls]
+Homepage = "https://protbed.com"
+Repository = "https://github.com/AnasBedr/protbed-ms-normalize"
+Documentation = "https://github.com/AnasBedr/protbed-ms-normalize#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/protbed_normalize"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
